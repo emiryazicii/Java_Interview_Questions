@@ -8,7 +8,7 @@ public class AddUpToSum {
 
     } 
     
-    //
+    //creating addUpToSum method
     public static void addUpToSum(int[] arr, int sumNumbers){
 
         
