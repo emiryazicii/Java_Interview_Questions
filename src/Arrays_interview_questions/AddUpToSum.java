@@ -7,10 +7,6 @@ public class AddUpToSum {
         addUpToSum(new int[]{8, 7, 2, 5, 3, 1},9);
 
     } 
-    
-
-
-
 
     public static void addUpToSum(int[] arr, int sumNumbers){
 
