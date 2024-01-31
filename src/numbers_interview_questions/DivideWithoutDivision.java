@@ -9,18 +9,21 @@ public class DivideWithoutDivision {
         divideWithoutDivision(7,2);
         divideWithoutDivision(3,5);
         divideWithoutDivision(10,0);
+
+        System.out.println("-------------------------------------------");
+
         division(-23,5);
         division(-5,6);
         division(30,-6);
 
     }
-    public static void divideWithoutDivision(int a, int b){
+    public static void divideWithoutDivision(int a, int b){ // works with only positive integers
 
         int count = 0;
         int tempA = a;
 
         if(b == 0){
-            System.err.println(a+" cannot divide by "+b);
+            throw new ArithmeticException(a+" can't divide by "+b);
         }else{
             while(a >= b ){
                 count++;
@@ -30,18 +33,18 @@ public class DivideWithoutDivision {
         }
     }
 
-    public static void division(int a , int b){
+    public static void division(int a , int b){ // works with both positive and negative integers
 
         int count = 0;
         int tempA = a;
         int tempB = b;
-        int sign = (a < 0) || (b < 0) ? -1 : 1; // Determine the sign of the result
+        int sign = (a < 0) ^ (b < 0) ? -1 : 1; // Determine the sign of the result
 
         a = Math.abs(a);
         b = Math.abs(b);
 
         if (b == 0) {
-            System.err.println(tempA + " cannot divide by " + b);
+            throw new ArithmeticException(a+" can't divide by "+b);
         } else {
             while (a >= b) {
                 count++;
