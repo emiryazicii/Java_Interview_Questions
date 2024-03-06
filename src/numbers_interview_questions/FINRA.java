@@ -1,47 +1,75 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides methods to print numbers from 1 to N with specific conditions.
+ */
 public class FINRA {
 
-    public static void main(String[] args) {
 
+     //Main method to test FINRA printing methods.
+    public static void main(String[] args) {
+        // Test displayFinra method
         displayFinra(30);
+        // Test displayFinra2 method
         displayFinra2(30);
     }
 
+    /**
+     * Method to print numbers from 1 to N with specific conditions using if-else statements.
+     *
+     * @param n The upper limit of the range.
+     */
     public static void displayFinra(int n) {
-
         for (int i = 1; i <= n; i++) {
+            // Check if the number is divisible by both 3 and 5
             if (i % 15 == 0) {
                 System.out.println("FINRA");
-            } else if (i % 5 == 0) {
+            }
+            // Check if the number is divisible by 5 only
+            else if (i % 5 == 0) {
                 System.out.println("RA");
-            } else if (i % 3 == 0) {
+            }
+            // Check if the number is divisible by 3 only
+            else if (i % 3 == 0) {
                 System.out.println("FIN");
-            } else {
+            }
+            // Print the number itself if none of the above conditions are met
+            else {
                 System.out.println(i);
             }
         }
     }
 
+    /**
+     * Method to print numbers from 1 to N with specific conditions using a string concatenation approach.
+     *
+     * @param n The upper limit of the range.
+     */
     public static void displayFinra2(int n) {
-
-        for (int i = 1; i <=n ; i++) {
+        for (int i = 1; i <= n; i++) {
+            // Initialize an empty string to store the result
             String result = "";
 
-            if(i % 3 == 0){
+            // Check if the number is divisible by 3 and concatenate "FIN" to the result string
+            if (i % 3 == 0) {
                 result += "FIN";
             }
-            if (i % 5 == 0){
+            // Check if the number is divisible by 5 and concatenate "RA" to the result string
+            if (i % 5 == 0) {
                 result += "RA";
             }
-            if (result.isEmpty()){
-                System.out.println(i); //  System.out.println(result.isEmpty() ? i : result);
-            }else {
+            // Print the number itself if the result string is empty
+            if (result.isEmpty()) {
+                System.out.println(i);
+            }
+            // Otherwise, print the result string
+            else {
                 System.out.println(result);
             }
         }
     }
 }
+
       /*
         FINRA - Divisibility by 3 & 5
             alternatives: FIZZBUZZ

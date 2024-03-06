@@ -1,9 +1,13 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides methods to work with binary representations of numbers.
+ */
 public class BinaryRepresentationOfNumber {
 
-    public static void main(String[] args) {
 
+    //Main method to test binary representation functions.
+    public static void main(String[] args) {
         System.out.println(binaryOfNum(6));
         System.out.println(countOnesInBinary(7));
         System.out.println(countOnesInBinary(4));
@@ -11,20 +15,35 @@ public class BinaryRepresentationOfNumber {
         System.out.println(countOnesInBinary(15));
     }
 
+    /**
+     * Method to return the number of '1's in the binary representation of a number.
+     *
+     * @param n The input number.
+     * @return The number of '1's in the binary representation of the input number.
+     */
     public static int binaryOfNum(int n) {
-
         String binary = "";
 
+        // Convert the input number to binary representation
         while (n > 0) {
             binary = n % 2 + binary;
             n /= 2;
         }
+
+        // Count the number of '1's in the binary representation
         return binary.replace("0", "").length();
     }
-    public static int countOnesInBinary(int n) {
 
+    /**
+     * Method to count the number of '1's in the binary representation of a number.
+     *
+     * @param n The input number.
+     * @return The number of '1's in the binary representation of the input number.
+     */
+    public static int countOnesInBinary(int n) {
         int count = 0;
 
+        // Count the number of '1's in the binary representation
         while (n > 0) {
             if (n % 2 == 1) {
                 count++;
@@ -34,6 +53,7 @@ public class BinaryRepresentationOfNumber {
         return count;
     }
 }
+
       /*
         Binary Representation Of N
 

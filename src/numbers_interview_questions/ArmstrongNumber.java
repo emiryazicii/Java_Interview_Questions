@@ -3,40 +3,53 @@ package numbers_interview_questions;
 public class ArmstrongNumber {
 
     public static void main(String[] args) {
+        // Test cases
+        System.out.println(isArmstrong(153)); // true
+        System.out.println(isArmstrong(371)); // true
+        System.out.println(isArmstrong(9474)); // true
+        System.out.println(isArmstrong(9475)); // false
+        System.out.println(isArmstrong(123)); // false
 
-        System.out.println(isArmstrong(153));
-        System.out.println(isArmstrong(371));
-        System.out.println(isArmstrong(9474));
-        System.out.println(isArmstrong(9475));
-        System.out.println(isArmstrong(123));
-        System.out.println(isArmstrong2(153));
-        System.out.println(isArmstrong2(154));
-        System.out.println(isArmstrong3(153));
-        System.out.println(isArmstrong3(154));
-        System.out.println(isArmstrong4(153));
-        System.out.println(isArmstrong4(371));
-        System.out.println(isArmstrong4(9474));
+        System.out.println(isArmstrong2(153)); // true
+        System.out.println(isArmstrong2(154)); // false
 
+        System.out.println(isArmstrong3(153)); // true
+        System.out.println(isArmstrong3(154)); // false
+
+        System.out.println(isArmstrong4(153)); // true
+        System.out.println(isArmstrong4(371)); // true
+        System.out.println(isArmstrong4(9474)); // true
     }
 
+    /**
+     * Checks if a number is an Armstrong number.
+     * @param number The number to check.
+     * @return true if the number is an Armstrong number, false otherwise.
+     */
     public static boolean isArmstrong(int number){
-
-        String num = ""+number;
+        String num = "" + number;
         int pow = num.length();
         int sum = 0;
 
+        // Calculate the sum of the digits raised to the power of the number of digits
         for(int i = 0; i < num.length() ; i++){
             int eachDigit = Integer.parseInt(num.substring(i,i+1));
             sum += (int)Math.pow(eachDigit,pow);
         }
+        // Check if the sum is equal to the original number
         return sum == number;
     }
 
+    /**
+     * Another implementation to check if a number is an Armstrong number.
+     * @param n The number to check.
+     * @return true if the number is an Armstrong number, false otherwise.
+     */
     public static boolean isArmstrong2(int n){
-
         int temp = n;
         int digits = 0;
 
+        // Count the number of digits
         while(temp > 0){
             digits++;
             temp /= 10;
@@ -45,20 +58,27 @@ public class ArmstrongNumber {
         temp = n;
         int sum = 0;
 
+        // Calculate the sum of the digits raised to the power of the number of digits
         while(temp > 0 ){
             int eachDigit = temp % 10 ;
             sum += (int)Math.pow(eachDigit,digits);
             temp /= 10;
         }
+        // Check if the sum is equal to the original number
         return sum == n;
     }
 
+    /**
+     * Yet another implementation to check if a number is an Armstrong number.
+     * @param number The number to check.
+     * @return true if the number is an Armstrong number, false otherwise.
+     */
     public static boolean isArmstrong3(int number) {
-
         String num = "" + number;
         int pow = num.length();
         int sum = 0;
 
+        // Calculate the sum of the digits raised to the power of the number of digits
         for (int i = 0; i < num.length(); i++) {
             int eachDigit = Integer.parseInt(num.substring(i, i + 1));
             int digitPower = 1;
@@ -69,13 +89,20 @@ public class ArmstrongNumber {
 
             sum += digitPower;
         }
+        // Check if the sum is equal to the original number
         return sum == number;
     }
 
+    /**
+     * Another implementation to check if a number is an Armstrong number.
+     * @param n The number to check.
+     * @return true if the number is an Armstrong number, false otherwise.
+     */
     public static boolean isArmstrong4(int n) {
         int temp = n;
         int digits = 0;
 
+        // Count the number of digits
         while (temp > 0) {
             digits++;
             temp /= 10;
@@ -84,6 +111,7 @@ public class ArmstrongNumber {
         temp = n;
         int sum = 0;
 
+        // Calculate the sum of the digits raised to the power of the number of digits
         while (temp > 0) {
             int eachDigit = temp % 10;
             int digitPower = 1;
@@ -95,9 +123,11 @@ public class ArmstrongNumber {
             sum += digitPower;
             temp /= 10;
         }
+        // Check if the sum is equal to the original number
         return sum == n;
     }
 }
+
   /*
         Armstrong
 
