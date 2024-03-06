@@ -1,26 +1,36 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides a method to calculate the sum of the digits of a given integer.
+ */
 public class SumOfDigits {
 
-    public static void main(String[] args) {
 
+     //Main method to test the sumOfDigits method.
+    public static void main(String[] args) {
         System.out.println(sumOfDigits(11111));
         System.out.println(sumOfDigits(54321));
         System.out.println(sumOfDigits(214));
-
     }
 
-    public static int sumOfDigits(int n){
-
+    /**
+     * Method to calculate the sum of the digits of a given integer.
+     *
+     * @param n The input integer.
+     * @return The sum of the digits of the input integer.
+     */
+    public static int sumOfDigits(int n) {
         int sum = 0;
 
-        while(n != 0){
-            sum += n % 10 ;
-            n /= 10;
+        // Continue the process until n becomes 0
+        while (n != 0) {
+            sum += n % 10; // Add the last digit to sum
+            n /= 10; // Remove the last digit
         }
-        return sum;
+        return sum; // Return the sum of the digits
     }
 }
+
       /*
         Sum Of Digits Of Integer
 

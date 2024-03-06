@@ -1,35 +1,48 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides a method to return the maximum possible value of a given number
+ * by inserting the digit '5' somewhere in the integer.
+ */
 public class MaximumPossibleValue {
 
-    public static void main(String[] args) {
 
+     //Main method to test the biggestValue method.
+    public static void main(String[] args) {
         System.out.println(biggestValue(2680));
         System.out.println(biggestValue(-999));
         System.out.println(biggestValue(798));
-
-
     }
 
+    /**
+     * Method to return the maximum possible value of a given number
+     * by inserting the digit '5' somewhere in the integer.
+     *
+     * @param n The given number.
+     * @return The maximum possible value after inserting '5'.
+     */
     public static int biggestValue(int n) {
-
-        boolean isPos = n >= 0;
+        boolean isPositive = n >= 0;
         n = Math.abs(n);
 
+        // Convert the number to a string
         String strNum = Integer.toString(n);
         int i;
 
+        // Find the position to insert '5'
         for (i = 0; i < strNum.length(); i++) {
             char digit = strNum.charAt(i);
-            if ((isPos && digit < '5') || (!isPos && digit > '5')) {
+            if ((isPositive && digit < '5') || (!isPositive && digit > '5')) {
                 break;
             }
         }
-        strNum = strNum.substring(0, i) + '5' + strNum.substring(i);
-        return Integer.parseInt(strNum) * (isPos ? 1 : -1);
-    }
 
+        // Insert '5' at the appropriate position and convert back to integer
+        strNum = strNum.substring(0, i) + '5' + strNum.substring(i);
+        return Integer.parseInt(strNum) * (isPositive ? 1 : -1);
+    }
 }
+
  /*
         Maximum Possible Value
 

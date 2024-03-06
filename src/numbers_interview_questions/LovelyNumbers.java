@@ -5,28 +5,43 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class provides methods to count lovely numbers within a given range.
+ */
 public class LovelyNumbers {
 
+
+     //Main method to test lovely number counting methods.
     public static void main(String[] args) {
-
+        // Test countLovelyNumbers method
         System.out.println(countLovelyNumbers(1000, 1000));
-        System.out.println(lovelyNumbers(1,111));
-
+        // Test lovelyNumbers method
+        System.out.println(lovelyNumbers(1, 111));
     }
 
+    /**
+     * Method to count lovely numbers within a given range using nested loops.
+     *
+     * @param lowerBound The lower bound of the range.
+     * @param upperBound The upper bound of the range.
+     * @return The count of lovely numbers within the range.
+     */
     public static int countLovelyNumbers(int lowerBound, int upperBound) {
-
         int countLovelyNumbers = 0;
         for (int i = lowerBound; i <= upperBound; i++) {
             String str = String.valueOf(i);
             int countSameDigits = 0;
+            // Loop through each digit of the number
             for (int j = 0; j < str.length(); j++) {
+                // Compare each digit with other digits in the number
                 for (int k = j + 1; k < str.length(); k++) {
+                    // If two digits are same, increment the count
                     if (str.charAt(j) == str.charAt(k)) {
                         countSameDigits++;
                     }
                 }
             }
+            // If the count of same digits is less than 3, increment the lovely number count
             if (countSameDigits < 3) {
                 countLovelyNumbers++;
             }
@@ -34,17 +49,21 @@ public class LovelyNumbers {
         return countLovelyNumbers;
     }
 
-    public static int lovelyNumbers(int loverBound, int upperBound) {
-
+    /**
+     * Method to count lovely numbers within a given range using collections.
+     *
+     * @param lowerBound The lower bound of the range.
+     * @param upperBound The upper bound of the range.
+     * @return The count of lovely numbers within the range.
+     */
+    public static int lovelyNumbers(int lowerBound, int upperBound) {
         int count = 0;
-
-        for (int i = loverBound; i <= upperBound; i++) {
-
+        for (int i = lowerBound; i <= upperBound; i++) {
             List<String> list = new ArrayList<>(Arrays.asList(String.valueOf(i).split("")));
-
             int sizeBefore = list.size();
+            // Remove digits that occur more than 2 times
             list.removeIf(p -> Collections.frequency(list, p) >= 3);
-
+            // If the size of the list remains the same, increment the lovely number count
             if (sizeBefore == list.size()) {
                 count++;
             }
@@ -52,6 +71,7 @@ public class LovelyNumbers {
         return count;
     }
 }
+
   /*
         Lovely Number
 

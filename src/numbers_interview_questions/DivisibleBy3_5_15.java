@@ -1,28 +1,41 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides a method to display numbers divisible by 3, 5, and 15 separately within a given range.
+ */
 public class DivisibleBy3_5_15 {
 
+
+     //Main method to test the displayDivisibility method.
     public static void main(String[] args) {
-
         displayDivisibility(100);
-
     }
-    public static void displayDivisibility(int num){
 
+    /**
+     * Method to display numbers divisible by 3, 5, and 15 separately within the range from 1 to the given number.
+     *
+     * @param num The upper limit of the range.
+     */
+    public static void displayDivisibility(int num) {
         String divisibleBy15 = "", divisibleBy5 = "", divisibleBy3 = "";
 
-        for (int i = 1; i <= num ; i++) {
-            if (i % 15 == 0){
-                divisibleBy15 += i+" ";
-            } else if (i % 5 == 0) {
-                divisibleBy5 += i+" ";
-            } else if (i % 3 == 0) {
-                divisibleBy3 += i+" ";
+        // Iterate through the range from 1 to num
+        for (int i = 1; i <= num; i++) {
+            // Check divisibility by 15 and append to divisibleBy15 if true
+            if (i % 15 == 0) {
+                divisibleBy15 += i + " ";
+            } else if (i % 5 == 0) { // Check divisibility by 5 and append to divisibleBy5 if true
+                divisibleBy5 += i + " ";
+            } else if (i % 3 == 0) { // Check divisibility by 3 and append to divisibleBy3 if true
+                divisibleBy3 += i + " ";
             }
         }
-        System.out.println("Divisible By 15: "+divisibleBy15.trim()+"\nDivisible By 5: "+divisibleBy5.trim()+"\nDivisible By 3: "+divisibleBy3.trim());
+
+        // Print the grouped sections separately
+        System.out.println("Divisible By 15: " + divisibleBy15.trim() + "\nDivisible By 5: " + divisibleBy5.trim() + "\nDivisible By 3: " + divisibleBy3.trim());
     }
 }
+
  /*
         Divisible By 3, 5 & 15
 
