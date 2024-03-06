@@ -1,62 +1,73 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides methods to display consecutive numbers with certain replacements based on divisibility.
+ */
 public class ConsecutiveNumbers {
 
-    public static void main(String[] args) {
 
+     //Main method to test consecutive numbers display methods.
+     static void main(String[] args) {
         displayConsecutiveNumbers(16);
         displayConsecutiveNumbers2(16);
-
     }
-    public static void displayConsecutiveNumbers(int n){
 
+    /**
+     * Method to display consecutive numbers from 1 to n with replacements based on divisibility.
+     *
+     * @param n The upper limit of consecutive numbers.
+     */
+    public static void displayConsecutiveNumbers(int n) {
         for (int i = 1; i <= n; i++) {
-
-            if(i % 30 == 0){
-                System.out.println("CodilityTestCoders");
+            // Check divisibility by different numbers and print corresponding strings
+            if (i % 30 == 0) {
+                System.out.println("CodilityTestCoders"); // If divisible by 30
             } else if (i % 15 == 0) {
-                System.out.println("TestCoders");
+                System.out.println("TestCoders"); // If divisible by 15
             } else if (i % 10 == 0) {
-                System.out.println("CodilityCoders");
+                System.out.println("CodilityCoders"); // If divisible by 10
             } else if (i % 6 == 0) {
-                System.out.println("CodilityTest");
-            } else if(i % 5 == 0){
-                System.out.println("Coders");
+                System.out.println("CodilityTest"); // If divisible by 6
+            } else if (i % 5 == 0) {
+                System.out.println("Coders"); // If divisible by 5
             } else if (i % 3 == 0) {
-                System.out.println("Test");
+                System.out.println("Test"); // If divisible by 3
             } else if (i % 2 == 0) {
-                System.out.println("Codility");
-            }else {
-                System.out.println(i);
+                System.out.println("Codility"); // If divisible by 2
+            } else {
+                System.out.println(i); // Print the number itself if not divisible by any specified number
             }
         }
     }
 
-    public static void displayConsecutiveNumbers2(int n){
-
-        for (int i = 1; i <= n ; i++) {
-
+    /**
+     * Method to display consecutive numbers from 1 to n with replacements based on divisibility.
+     *
+     * @param n The upper limit of consecutive numbers.
+     */
+    public static void displayConsecutiveNumbers2(int n) {
+        for (int i = 1; i <= n; i++) {
             String result = "";
-            if(i % 2 == 0){
-
-                result += "Codility";
+            // Build the replacement string based on divisibility
+            if (i % 2 == 0) {
+                result += "Codility"; // Append "Codility" if divisible by 2
             }
-            if (i % 3 == 0){
-
-                result += "Test";
+            if (i % 3 == 0) {
+                result += "Test"; // Append "Test" if divisible by 3
             }
-            if (i % 5 == 0){
-
-                result += "Coders";
+            if (i % 5 == 0) {
+                result += "Coders"; // Append "Coders" if divisible by 5
             }
-            if (result.isEmpty()){
-                System.out.println(i);   // System.out.println(result.isEmpty() ? i : result);
-            }else {
+            // If the replacement string is empty, print the number itself, otherwise print the replacement string
+            if (result.isEmpty()) {
+                System.out.println(i);
+            } else {
                 System.out.println(result);
             }
         }
     }
 }
+
   /*
         Consecutive Numbers
 

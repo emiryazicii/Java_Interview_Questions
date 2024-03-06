@@ -1,25 +1,35 @@
 package arrays_interview_questions;
 
+/**
+ * This class contains a method to find pairs of numbers in an integer array that add up to a given sum.
+ */
 public class AddUpToSum {
 
+    // The main method to test the addUpToSum method.
     public static void main(String[] args) {
+        addUpToSum(new int[]{8, 7, 2, 5, 3, 1}, 10);
+    }
 
-        addUpToSum(new int[]{8, 7, 2, 5, 3, 1},9);
-
-    } 
-
-    public static void addUpToSum(int[] arr, int sumNumbers){
-
-        
+    /**
+     * Finds pairs of numbers from the given array that add up to the specified sum.
+     * @param arr The integer array to search for pairs.
+     * @param sumNumbers The target sum to find pairs for.
+     */
+    public static void addUpToSum(int[] arr, int sumNumbers) {
+        // Loop through each element in the array
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j < arr.length; j++) {
-                if (arr[i] + arr[j] == sumNumbers){
-                    System.out.println(arr[i] +" & "+arr[j]);
+            // Loop through each element after the current element
+            for (int j = i + 1; j < arr.length; j++) {
+                // Check if the sum of current element and next element equals the target sum
+                if (arr[i] + arr[j] == sumNumbers) {
+                    // Print the pair of numbers that add up to the sum
+                    System.out.println(arr[i] + " & " + arr[j]);
                 }
             }
         }
     }
 }
+
   /*
         Add Up to Sum
 

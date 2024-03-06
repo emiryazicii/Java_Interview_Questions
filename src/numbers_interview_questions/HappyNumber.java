@@ -1,31 +1,46 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides a method to check if a given number is a happy or unhappy number.
+ */
 public class HappyNumber {
 
-    public static void main(String[] args) {
 
+     //Main method to test the happyOrUnhappyNumber method.
+    public static void main(String[] args) {
         System.out.println(happyOrUnhappyNumber(32));
         System.out.println(happyOrUnhappyNumber(42));
     }
 
+    /**
+     * Method to determine if a given number is a happy or unhappy number.
+     *
+     * @param n The number to be checked.
+     * @return "Happy" if the number is happy, "Unhappy" otherwise.
+     * @throws IllegalArgumentException if the input number is not positive.
+     */
     public static String happyOrUnhappyNumber(int n) {
-
+        // Check if the input number is positive
         if (n <= 0) {
             throw new IllegalArgumentException("Input should be positive integer");
         }
 
+        // Continue the process until the number becomes 1 (happy) or 4 (unhappy)
         while (n != 1 && n != 4) {
             int sum = 0;
+            // Calculate the sum of squares of digits
             while (n > 0) {
                 int eachDigit = n % 10;
                 sum += eachDigit * eachDigit;
                 n /= 10;
             }
-            n = sum;
+            n = sum; // Set n to the sum for the next iteration
         }
+        // Return "Happy" if the number becomes 1, otherwise return "Unhappy"
         return n == 1 ? "Happy" : "Unhappy";
     }
 }
+
     /*
         Happy Number
 

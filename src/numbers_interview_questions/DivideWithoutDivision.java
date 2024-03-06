@@ -1,66 +1,88 @@
 package numbers_interview_questions;
 
+/**
+ * This class provides methods to divide two numbers without using the division operator.
+ */
 public class DivideWithoutDivision {
 
-    public static void main(String[] args) {
 
-        divideWithoutDivision(8,3);
-        divideWithoutDivision(4,2);
-        divideWithoutDivision(7,2);
-        divideWithoutDivision(3,5);
-        //divideWithoutDivision(10,0);
+     //Main method to test division methods.
+    public static void main(String[] args) {
+        // Test divideWithoutDivision method with various inputs
+        divideWithoutDivision(8, 3);
+        divideWithoutDivision(4, 2);
+        divideWithoutDivision(7, 2);
+        divideWithoutDivision(3, 5);
+        // Uncomment below to test division by 0
+        // divideWithoutDivision(10, 0);
 
         System.out.println("-------------------------------------------");
 
-        division(-23,5);
-        division(-5,6);
-        division(30,-6);
-        division(-45,-9);
-        //division(12,0);
-
+        // Test division method with various inputs
+        division(-23, 5);
+        division(-5, 6);
+        division(30, -6);
+        division(-45, -9);
+        // Uncomment below to test division by 0
+        // division(12, 0);
     }
-    public static void divideWithoutDivision(int a, int b){ // works with only positive integers
 
-        if(a < 0 || b < 0){
-            throw new IllegalArgumentException("a or be can't be negative.");
+    /**
+     * Method to divide two numbers without using the division operator (works only with positive integers).
+     *
+     * @param a The dividend.
+     * @param b The divisor.
+     */
+    public static void divideWithoutDivision(int a, int b) {
+        if (a < 0 || b < 0) {
+            throw new IllegalArgumentException("a or b can't be negative.");
         }
 
-        if(b == 0){
-            throw new ArithmeticException(a+" can't divide by "+b);
-        }else{
-
+        if (b == 0) {
+            throw new ArithmeticException(a + " can't divide by " + b);
+        } else {
             int remainder = a;
             int count = 0;
 
-            while(remainder >= b ){
+            // Iteratively subtract divisor from remainder until it becomes less than the divisor
+            while (remainder >= b) {
                 count++;
-                remainder -= b ;
+                remainder -= b;
             }
-            System.out.println(a +", "+b+" -> "+a+" / "+b+" is "+count+" with remainder "+remainder);
+            // Print the division result and remainder
+            System.out.println(a + ", " + b + " -> " + a + " / " + b + " is " + count + " with remainder " + remainder);
         }
     }
 
-    public static void division(int a , int b){ // works with both positive and negative integers
-
+    /**
+     * Method to divide two numbers without using the division operator (works with both positive and negative integers).
+     *
+     * @param a The dividend.
+     * @param b The divisor.
+     */
+    public static void division(int a, int b) {
         if (b == 0) {
-            throw new ArithmeticException(a+" can't divide by "+b);
+            throw new ArithmeticException(a + " can't divide by " + b);
         } else {
-
-            int sign = (a < 0) ^ (b < 0) ? -1 : 1; // Determine the sign of the result
+            // Determine the sign of the result
+            int sign = (a < 0) ^ (b < 0) ? -1 : 1;
 
             int remainder = Math.abs(a);
             int divider = Math.abs(b);
 
             int count = 0;
 
+            // Iteratively subtract divisor from remainder until it becomes less than the divisor
             while (remainder >= divider) {
                 count++;
                 remainder -= divider;
             }
-            System.out.println(a+ ", " + b + " -> " + a + " / " +b + " is " + (sign * count) + " with remainder " + remainder);
+            // Print the division result and remainder, considering the sign
+            System.out.println(a + ", " + b + " -> " + a + " / " + b + " is " + (sign * count) + " with remainder " + remainder);
         }
     }
 }
+
    /*
     Divide Without Division
 
